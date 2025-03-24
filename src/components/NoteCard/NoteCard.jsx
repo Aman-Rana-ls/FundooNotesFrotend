@@ -45,9 +45,6 @@ function NoteCard({ noteDetails, notes, onNoteAction }) {
   const anchorRef = useRef(null);
   const [colorAnchorEl, setColorAnchorEl] = useState(null);
   const [noteColor, setNoteColor] = useState("#FFFFFF");
-  const [collaboratorDialogOpen, setCollaboratorDialogOpen] = useState(false);
-  const [collaborators, setCollaborators] = useState([]);
-  const [newCollaboratorEmail, setNewCollaboratorEmail] = useState("");
 
   useEffect(() => {
     const savedColor = localStorage.getItem(`note-color-${noteDetails.noteId}`);
@@ -95,16 +92,6 @@ function NoteCard({ noteDetails, notes, onNoteAction }) {
       console.error(`Error during ${action}:`, error);
     }
     setMenuOpen(false);
-  };
-
-  const handleCollaboratorDialogOpen = async () => {
-    setCollaboratorDialogOpen(true);
-    try {
-      const collaborators = await getCollaborators(noteDetails.noteId);
-      setCollaborators(collaborators);
-    } catch (error) {
-      console.error("Error fetching collaborators:", error);
-    }
   };
 
 
