@@ -1,0 +1,23 @@
+.trash-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    min-height: 60vh;
+  
+   .notes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+      gap: 20px;
+      width: 90%;
+      max-width: 1200px;
+      justify-content: center;
+    }
+  
+    .empty-message {
+      text-align: center;
+      color: #555;
+      font-size: 18px;
+    }
+  }
+  
